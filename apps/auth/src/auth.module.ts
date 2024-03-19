@@ -7,6 +7,7 @@ import { LoggerModule } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LocalStrategy } from './strategies/local.strategy';
 import * as Joi from 'joi';
+import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
   imports: [
@@ -32,6 +33,6 @@ import * as Joi from 'joi';
       inject: [ConfigService]
     })],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
 })
 export class AuthModule { }
