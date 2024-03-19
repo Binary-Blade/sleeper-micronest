@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { UsersModule } from './users/users.module';
 import { LoggerModule } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { LocalStrategy } from './strategies/local.strategy';
 import * as Joi from 'joi';
 
 @Module({
@@ -31,6 +32,6 @@ import * as Joi from 'joi';
       inject: [ConfigService]
     })],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, LocalStrategy],
 })
 export class AuthModule { }
